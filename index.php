@@ -48,7 +48,8 @@ $response = $contactApi->getList("email:$email");
 $json = json_encode($response);
 $decodedJson = json_decode($json, true);
 
-$id = 1;
+//padrão zero, caso não encontre deve ser enviado zero para criar usando o edit
+$id = 0;
 foreach ($decodedJson as $lista) {
     foreach ($decodedJson["contacts"] as $listaTotal) {
         $id = $listaTotal["id"];
