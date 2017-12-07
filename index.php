@@ -50,17 +50,16 @@ $mautic_data = array();
 foreach($decodedJson as $lista)
 {
  	foreach($decodedJson["contacts"] as $listaTotal)
-	 {
- 		 $id                          =     $listaTotal["id"];
-     $mautic_data                 =     $listaTotal;
-     // coloque todos os dados que você quer atualizar aqui
-     $mautic_data["email"]        =>    $_POST['email'],  // customize a variavel
-     $mautic_data["firstname"]    =>    $_POST['name'],    // customize a variavel
-     $mautic_data["phone"]		    =>    $_POST['phone']    // customize a variavel
-
-     break;
- 	}
-	break;
+  {
+    $id                          =     $listaTotal["id"];
+    $mautic_data                 =     $listaTotal;
+    // coloque todos os dados que você quer atualizar aqui
+    $mautic_data["email"]        =>    $_POST['email'],  // customize a variavel
+    $mautic_data["firstname"]    =>    $_POST['name'],    // customize a variavel
+    $mautic_data["phone"]		    =>    $_POST['phone']    // customize a variavel
+    break;
+  }
+  break;
 }
 
 // Permite criar um novo contato caso o contato especificado não seja encontrado
