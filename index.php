@@ -50,7 +50,7 @@ $mautic_data = array();
 foreach($decodedJson as $lista)
 {
  	foreach($decodedJson["contacts"] as $listaTotal)
-	{
+	 {
  		 $id                          =     $listaTotal["id"];
      $mautic_data                 =     $listaTotal;
      // coloque todos os dados que você quer atualizar aqui
