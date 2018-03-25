@@ -8,24 +8,16 @@
 *   @autor                  Luiz Eduardo - luiz@powertic.com
 *   @license                GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 *   @mautic-min-version     2.10.0
+*   @TODO: Tratar as exceções
 *
 */
 
 include __DIR__ . '/vendor/autoload.php';
-
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
-
 session_start();
 
-// a url do seu mautic
-$mauticUrl = "https://mkt.seumautic.com.br";
-
-// login do Basic Authentication
-$credentials = array(
-    'userName'   => "login-do-mautic",
-    'password'   => "senha-do-mautic"
-);
+include "credentials.php";
 
 // Conecta no objeto de autenticação através da BasicAuth
 $initAuth = new ApiAuth();
@@ -51,8 +43,10 @@ foreach($decodedJson as $lista)
 {
  	foreach($decodedJson["contacts"] as $listaTotal)
   {
+    // captura o id do contato caso seja encontrado
     $id                           =     $listaTotal["id"];
-    $mautic_data                  =     $listaTotal;
+    // carrega todos os dados existentes do contato
+    $mautic_data                  =     $listaTotal["fields"]["all"];
     // coloque todos os dados que você quer atualizar aqui
     $mautic_data["email"]         =    $_POST['email'];  // customize a variavel
     $mautic_data["firstname"]     =    $_POST['name'];    // customize a variavel
