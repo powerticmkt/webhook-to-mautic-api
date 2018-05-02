@@ -59,6 +59,16 @@ Utilize este desse modo:
 `https://mkt.seumautic.com.br/suapasta/remove-dnc.php?email=luiz@powertic.com&key=25dgdg437257ddg28672dg357686`
 
 
+## clear-points.php
+
+Zera os pontos de um contato
+
+Utilize este desse modo:
+
+`https://mkt.seumautic.com.br/suapasta/clear-points.php?email=luiz@powertic.com&key=25dgdg437257ddg28672dg357686`
+
+
+
 ## random-owner.php
 
 Atribui um proprietário aleatório para um lead caso não possua.
