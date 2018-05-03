@@ -10,7 +10,7 @@
 *   @autor                  Luiz Eduardo - luiz@powertic.com
 *   @license                GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 *   @mautic-min-version     2.10.0
-*   @ TODO: Tratar as exceções
+*   @ TODO: Tratar as exceções e melhorar o padrao do código
 *
 */
 
@@ -22,51 +22,34 @@ session_start();
 include "credentials.php";
 
 // Conecta no objeto de autenticação através da BasicAuth
-$initAuth     = new ApiAuth();
-$auth         = $initAuth->newAuth( $credentials, 'BasicAuth' );
+$initAuth = new ApiAuth();
+$auth  = $initAuth->newAuth( $credentials, 'BasicAuth' );
 
 // Instanciando um novo objeto Mautic
-$api          = new MauticApi();
+$api  = new MauticApi();
 
 // Nova instância do objeto Contact
-$contactApi   = $api->newApi( 'contacts', $auth, $mauticUrl );
+$contactApi  = $api->newApi( 'contacts', $auth, $mauticUrl );
 
 // Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
-$email        = $_GET['email'];
-$response     = $contactApi->getList( "email:$email" );
-$json         = json_encode( $response );
-$decodedJson  = json_decode( $json, true );
-$id           = 0;
+$email = $_GET['email'];
+$response = $contactApi->getList( "email:$email" );
+$json = json_encode( $response );
+$decodedJson = json_decode( $json, true );
+$id = 0;
 $mautic_data  = array();
 
 foreach( $decodedJson as $lista ) {
+	
  	foreach( $decodedJson["contacts"] as $listaTotal ) {
-      $id = $listaTotal["id"];
+
+       $id  =  $listaTotal["id"];
+       $mautic_data  =  $listaTotal["fields"]["all"];
+       $mautic_data["points"] = 0;
+
     break;
   }
-  break;
-}
-
-// Retorna todos os possíveis proprietários
-$all_owners = $contactApi->getOwners();
-
-// Sorteia um proprietário aleatoriamente
-$owner = array_rand( $all_owners , 1 );
-
-$owner_id = $all_owners[$owner]["id"];
-
-$mautic_data = array();
-
-foreach($decodedJson as $lista)
-{
- 	foreach($decodedJson["contacts"] as $listaTotal)
-  {
-    $id                           =     $listaTotal["id"];
-    $mautic_data                  =     $listaTotal["fields"]["all"];
-    $mautic_data["points"] = 0;
-    // coloque todos os dados que você quer atualizar aqui
-    break;
-  }
+  
   break;
 }
 
