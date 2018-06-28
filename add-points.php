@@ -35,6 +35,7 @@ $contactApi  = $api->newApi( 'contacts', $auth, $mauticUrl );
 // TODO: Melhorar a validação do input
 
 $email = $_GET['email'];
+$changePoints = (int) $_GET['points'];
 
 $response = $contactApi->getList( "email:$email" );
 $json = json_encode( $response );
@@ -48,7 +49,9 @@ foreach( $decodedJson as $lista ) {
 
        $id  =  $listaTotal["id"];
        $mautic_data  =  $listaTotal["fields"]["all"];
-       $mautic_data["points"] = 0;
+       $current_points = (int) $mautic_data["points"];
+
+       $mautic_data["points"] = $current_points + $changePoints;
 
     break;
   }

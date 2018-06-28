@@ -31,11 +31,11 @@ $api  = new MauticApi();
 // Nova instância do objeto Contact
 $contactApi  = $api->newApi( 'contacts', $auth, $mauticUrl );
 
-// Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
 // TODO: Melhorar a validação do input
-
 $email = $_GET['email'];
+$changePoints = (int) $_GET['points'];
 
+// Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
 $response = $contactApi->getList( "email:$email" );
 $json = json_encode( $response );
 $decodedJson = json_decode( $json, true );
@@ -48,7 +48,9 @@ foreach( $decodedJson as $lista ) {
 
        $id  =  $listaTotal["id"];
        $mautic_data  =  $listaTotal["fields"]["all"];
-       $mautic_data["points"] = 0;
+       $current_points = (int) $mautic_data["points"];
+
+       $mautic_data["points"] = $current_points - $changePoints;
 
     break;
   }

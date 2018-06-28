@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "4feab46358b6310d50cacd402dd8f535",
     "packages": [
         {
             "name": "mautic/api-library",
-            "version": "2.10.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/api-library.git",
-                "reference": "7b92ff89e0fad499ae32360972b46ba90f2d31f2"
+                "reference": "460f8fad5b4db89f2753777b16fa1d6ac3b1101e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/api-library/zipball/7b92ff89e0fad499ae32360972b46ba90f2d31f2",
-                "reference": "7b92ff89e0fad499ae32360972b46ba90f2d31f2",
+                "url": "https://api.github.com/repos/mautic/api-library/zipball/460f8fad5b4db89f2753777b16fa1d6ac3b1101e",
+                "reference": "460f8fad5b4db89f2753777b16fa1d6ac3b1101e",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 "MIT"
             ],
             "description": "Mautic API Connector Library",
-            "time": "2017-08-28T06:48:37+00:00"
+            "time": "2018-02-27T12:51:34+00:00"
         },
         {
             "name": "psr/log",

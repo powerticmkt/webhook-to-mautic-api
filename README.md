@@ -9,7 +9,7 @@ Captura informações de uma requisição GET e envia para o Mautic
 Altere o arquivo `credentials.php` e insira uma chave de segurança além do endereço, usuário e senha do seu mautic:
 
 ```php
-// Coloque aqui a sua chave de segurança
+// Coloque aqui a sua chave de segurança (invente uma chave e utilize quando acionar os scripts)
 $secure = "25dgdg437257ddg28672dg357686";
 
 // a url do seu mautic
@@ -69,9 +69,29 @@ Utilize este desse modo:
 
 
 
+## add-points.php
+
+Adiciona uma quantidade de pontos aos pontos exitentes de um contato
+
+Utilize este desse modo:
+
+`https://mkt.seumautic.com.br/suapasta/add-points.php?email=luiz@powertic.com&points=10&key=25dgdg437257ddg28672dg357686`
+
+
+
+## remove-points.php
+
+Subtrai uma quantidade de pontos aos pontos exitentes de um contato
+
+Utilize este desse modo:
+
+`https://mkt.seumautic.com.br/suapasta/add-points.php?email=luiz@powertic.com&points=10&key=25dgdg437257ddg28672dg357686`
+
+
+
 ## random-owner.php
 
-Atribui um proprietário aleatório para um lead caso não possua.
+Atribui um proprietário aleatório para um lead caso não possua nenhum.
 
 Utilize este desse modo:
 
