@@ -32,7 +32,7 @@ $api          = new MauticApi();
 $contactApi   = $api->newApi( 'contacts', $auth, $mauticUrl );
 
 // Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
-$email        = $_GET['email'];
+$email        = $_POST['email'];
 $response     = $contactApi->getList( "email:$email" );
 $json         = json_encode( $response );
 $decodedJson  = json_decode( $json, true );

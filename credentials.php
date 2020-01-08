@@ -12,13 +12,19 @@
 *
 */
 
+$ts = gmdate("D, d M Y H:i:s") . " GMT";
+header("Expires: $ts");
+header("Last-Modified: $ts");
+header("Pragma: no-cache");
+header("Cache-Control: no-cache, must-revalidate");
+
 // Coloque aqui a sua chave de segurança
 $secure = "25dgdg437257ddg28672dg357686";
 
 // Se a chave não for informada ou esteja incorreta
 // interrompe o script imediatamente
-if (!(empty($_GET["key"]))) :
-  if (!($secure == $_GET["key"])) :
+if (!(empty($_POST["key"]))) :
+  if (!$secure == $_POST["key"]) :
    die();
   endif;
 else:
@@ -26,10 +32,10 @@ else:
 endif;
 
 // a url do seu mautic
-$mauticUrl    = "https://mkt.seumautic.com";
+$mauticUrl    = "https://mkt.powertic.com";
 
 // login do Basic Authentication (crie um usuário ou utilize um existente)
 $credentials  = array(
-  'userName'   => "nome do usuario",
-  'password'   => "senha do usuario"
+  'userName'   => $_POST["mautic_usr"],
+  'password'   => $_POST["mautic_pwd"]
 );

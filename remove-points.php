@@ -32,8 +32,8 @@ $api  = new MauticApi();
 $contactApi  = $api->newApi( 'contacts', $auth, $mauticUrl );
 
 // TODO: Melhorar a validação do input
-$email = $_GET['email'];
-$changePoints = (int) $_GET['points'];
+$email = $_POST['email'];
+$changePoints = (int) $_POST['points'];
 
 // Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
 $response = $contactApi->getList( "email:$email" );

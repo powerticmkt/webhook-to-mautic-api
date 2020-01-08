@@ -34,7 +34,7 @@ $contactApi  = $api->newApi( 'contacts', $auth, $mauticUrl );
 // Pesquisa o contato pelo e-mail | "email:luiz@powertic.com"
 // TODO: Melhorar a validação do input
 
-$email = $_GET['email'];
+$email = $_POST['email'];
 
 $response = $contactApi->getList( "email:$email" );
 $json = json_encode( $response );
