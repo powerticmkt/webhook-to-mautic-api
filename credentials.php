@@ -19,7 +19,7 @@ header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 
 // Coloque aqui a sua chave de segurança
-$secure = "25dgdg437257ddg28672dg357686";
+$secure = $_ENV["API_SECURE"];
 
 // Se a chave não for informada ou esteja incorreta
 // interrompe o script imediatamente
@@ -32,10 +32,10 @@ else:
 endif;
 
 // a url do seu mautic
-$mauticUrl    = "https://mkt.powertic.com";
+$mauticUrl = $_ENV["MAUTIC_URL"];
 
 // login do Basic Authentication (crie um usuário ou utilize um existente)
 $credentials  = array(
-  'userName'   => $_POST["mautic_usr"],
-  'password'   => $_POST["mautic_pwd"]
+  'userName'   => $_ENV["MAUTIC_USR"],
+  'password'   => $_ENV["MAUTIC_PWD"]
 );
