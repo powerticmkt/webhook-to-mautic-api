@@ -23,8 +23,8 @@ $secure = $_ENV["API_SECURE"];
 
 // Se a chave não for informada ou esteja incorreta
 // interrompe o script imediatamente
-if (!(empty($_POST["key"]))) :
-  if (!$secure == $_POST["key"]) :
+if (!(empty($_REQUEST["key"]))) :
+  if (!$secure == $_REQUEST["key"]) :
    die();
   endif;
 else:
